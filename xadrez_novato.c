@@ -82,5 +82,11 @@ void nivelAventureiro() {
     }
 }
 
+// NIVEL MESTRE (FUNÇÕES RECURSIVAS)
+
+
+
+
+
 return 0;
 }
