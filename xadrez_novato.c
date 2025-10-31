@@ -36,7 +36,7 @@ int main() {
     printf("Movimento Bispo:\n");
           
           while("ContadorBispo <= BispoCasa") {
-               printf("Bispo moveu-se %d na diagonal para Cima-Direita\n", ContadorBispo);
+               printf("Bispo moveu-se %d para Cima-Direita\n", ContadorBispo);
                ContadorBispo++;                         
 
           }
@@ -48,6 +48,19 @@ printf("\n"); // Quebra de linha para melhor visualização
     Exemplo: Do-While
     Movimento da Rainha: Todas as direções (8 casas)
 =======================================*/
+
+
+    int RainhaCasa = 8;
+    int ContadorRainha = 1;
+
+    printf("Movimento Rainha:\n");
+
+    do {
+        printf("Rainha moveu-se %d casas\n", ContadorRainha);
+        ContadorRainha++;
+    } while (ContadorRainha <= RainhaCasa);
+
+printf("Fim da simulação de movimentos.\n");
 
     return 0;
 }
