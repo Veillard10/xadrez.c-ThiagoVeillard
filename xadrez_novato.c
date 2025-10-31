@@ -83,6 +83,16 @@ void nivelAventureiro() {
 }
 
 // NIVEL MESTRE (FUNÇÕES RECURSIVAS)
+void recursivaTorre(int n) {
+    if (n <= 0) return;
+    recursivaTorre(n - 1);
+}
+
+void recursivaRainha(int n) {
+    if (n <= 0) return;
+    recursivaRainha(n - 1);
+}
+
 
 
 
