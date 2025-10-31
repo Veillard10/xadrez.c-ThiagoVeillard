@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// NIVEL NOVATO
 // O Tabuleiro possui uma dimensão padrão de 8x8
 // Simulação de movimento das peças de xadrez
 
@@ -66,5 +67,20 @@ printf("\n"); // Quebra de linha para melhor visualização
 
 printf("Fim da simulação de movimentos.\n");
 
-    return 0;
+
+// Nível Aventureiro
+void nivelAventureiro() {
+    linha("Nível Aventureiro");
+
+    printf("Cavalo - Movimento em L (baixo e esquerda)\n");
+    for (int i = 0; i < 2; i++) baixo();
+
+    int j = 0;
+    while (j < 1) {
+        esquerda();
+        j++;
+    }
+}
+
+return 0;
 }
