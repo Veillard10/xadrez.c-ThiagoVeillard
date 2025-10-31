@@ -93,7 +93,12 @@ void recursivaRainha(int n) {
     recursivaRainha(n - 1);
 }
 
-
+void recursivoBispo(int n) {
+    if (n == 0) return;
+    cima();
+    direita();
+    recursivoBispo(n - 1);
+}
 
 
 
