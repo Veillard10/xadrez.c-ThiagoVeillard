@@ -3,6 +3,11 @@
 // O Tabuleiro possui uma dimensão padrão de 8x8
 // Simulação de movimento das peças de xadrez
 
+//Váriaveis que definem os passos de cada peça
+
+int TorresCasa = 5;// Torre se move 5 casas para a direita
+int BispoCasa = 5; // Bispo se move 5 casas na diagonal para cima-direita
+int RainhaCasa = 8; // Rainha se move 8 casas em todas as as direções
 
 /* ====================================
           Torre  
@@ -12,7 +17,7 @@
 =======================================
 */
 int main() {
-    int TorresCasa = 5;
+    
 
     printf("Movimento Torre:\n");
 
@@ -30,13 +35,12 @@ int main() {
     Movimento do Bispo: 5 casas na diagonal para cima-direita
 =======================================*/
 
-    int BispoCasa = 5;
-    int ContadorBispo = 1;
+    int ContadorBispo = 0;
 
     printf("Movimento Bispo:\n");
-          
-          while("ContadorBispo <= BispoCasa") {
-               printf("Bispo moveu-se %d para Cima-Direita\n", ContadorBispo);
+
+          while("ContadorBispo < BispoCasa") {
+               printf(" Cima-Direita\n");
                ContadorBispo++;                         
 
           }
@@ -50,7 +54,6 @@ printf("\n"); // Quebra de linha para melhor visualização
 =======================================*/
 
 
-    int RainhaCasa = 8;
     int ContadorRainha = 1;
 
     printf("Movimento Rainha:\n");
