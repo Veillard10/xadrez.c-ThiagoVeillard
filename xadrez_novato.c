@@ -1,74 +1,36 @@
 #include <stdio.h>
 
+// Constantes de movimento
+const int PASSOSBISPO = 5;
+const int PASSOSTORRE = 5;
+const int PASSOSRAINHA = 8;
+
+// Direções de movimento
+void cima() { printf("Cima\n"); }
+void baixo() { printf("Baixo\n"); }
+void esquerda() { printf("Esquerda\n"); }
+void direita() { printf("Direita\n"); }
+
+void linha(const char *titulo) { printf("\n--- %s ---\n", titulo); }
+
 // NIVEL NOVATO
-// O Tabuleiro possui uma dimensão padrão de 8x8
-// Simulação de movimento das peças de xadrez
+void nivelNovato() {
+    linha("Nível Novato");
 
-//Váriaveis que definem os passos de cada peça
-
-int TorresCasa = 5;// Torre se move 5 casas para a direita
-int BispoCasa = 5; // Bispo se move 5 casas na diagonal para cima-direita
-int RainhaCasa = 8; // Rainha se move 8 casas em todas as as direções
-
-/* ====================================
-          Torre  
----------------------------------------
-    Exemplo: FOR
-    Movimento da Torre: 5 casas para a direita
-=======================================
-*/
-int main() {
-    
-
-    printf("Movimento Torre:\n");
-
-    for (int i = 1; i <= TorresCasa; i++) {
-        printf("Torre moveu-se %d para Direita\n", i);
+    printf("Bispo - Diagonal superior direita\n");
+    for (int i = 0; i < PASSOSBISPO; i++) {
+        cima();
+        direita();
     }
 
-    printf("\n"); // Quebra de linha para melhor visualização
+    printf("\nTorre - Direita\n");
+    for (int i = 0; i < PASSOSTORRE; i++) direita();
 
+    printf("\nRainha - Esquerda\n");
+    for (int i = 0; i < PASSOSRAINHA; i++) esquerda();
+}
 
-/* ====================================
-             Bispo 
----------------------------------------
-    Exemplo: WHILE
-    Movimento do Bispo: 5 casas na diagonal para cima-direita
-=======================================*/
-
-    int ContadorBispo = 0;
-
-    printf("Movimento Bispo:\n");
-
-          while(ContadorBispo < BispoCasa) {
-               printf(" Cima-Direita\n");
-               
-               ContadorBispo++;                         
-
-          }
-printf("\n"); // Quebra de linha para melhor visualização
-
-/* ====================================
-             Rainha
----------------------------------------
-    Exemplo: Do-While
-    Movimento da Rainha: Todas as direções (8 casas)
-=======================================*/
-
-
-    int ContadorRainha = 1;
-
-    printf("Movimento Rainha:\n");
-
-    do {
-        printf("Rainha moveu-se %d casas\n", ContadorRainha);
-        ContadorRainha++;
-    } while (ContadorRainha <= RainhaCasa);
-
-printf("Fim da simulação de movimentos.\n");
-
-
-// Nível Aventureiro
+// NIVEL AVENTUREIRO
 void nivelAventureiro() {
     linha("Nível Aventureiro");
 
@@ -82,26 +44,57 @@ void nivelAventureiro() {
     }
 }
 
-// NIVEL MESTRE (FUNÇÕES RECURSIVAS)
-void recursivaTorre(int n) {
-    if (n <= 0) return;
-    recursivaTorre(n - 1);
+// NIVEL MESTRE - USANDO RECURSIVIDADE
+void torreRecursiva(int n) {
+    if (n == 0) return;
+    direita();
+    torreRecursiva(n - 1);
 }
 
-void recursivaRainha(int n) {
-    if (n <= 0) return;
-    recursivaRainha(n - 1);
+void rainhaRecursiva(int n) {
+    if (n == 0) return;
+    esquerda();
+    rainhaRecursiva(n - 1);
 }
 
-void recursivoBispo(int n) {
+void bispoRecursivo(int n) {
     if (n == 0) return;
     cima();
     direita();
-    recursivoBispo(n - 1);
+    bispoRecursivo(n - 1);
 }
 
+void nivelMestre() {
+    linha("Nível Mestre");
 
+    printf("Bispo - Diagonal direita para cima\n");
+    bispoRecursivo(PASSOSBISPO);
 
+    printf("\nTorre - Direita\n");
+    torreRecursiva(PASSOSTORRE);
 
-return 0;
+    printf("\nRainha - Esquerda\n");
+    rainhaRecursiva(PASSOSRAINHA);
+
+    printf("\nCavalo - Movimento em L (cima e direita)\n");
+    for (int i = 0, k = 0; i < 2; i++, k++) {
+        if (k == 1) continue;
+        cima();
+    }
+    int c = 0;
+    while (c < 1) {
+        direita();
+        c++;
+    }
+}
+
+int main() {
+    printf("MateCheck - Desafio de Xadrez\n");
+
+    nivelNovato();
+    nivelAventureiro();
+    nivelMestre();
+
+    printf("\nDesafio concluído.\n");
+    return 0;
 }
