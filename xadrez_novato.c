@@ -39,8 +39,9 @@ int main() {
 
     printf("Movimento Bispo:\n");
 
-          while("ContadorBispo < BispoCasa") {
+          while(ContadorBispo < BispoCasa) {
                printf(" Cima-Direita\n");
+               
                ContadorBispo++;                         
 
           }
