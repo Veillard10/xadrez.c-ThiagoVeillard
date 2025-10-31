@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 // O Tabuleiro possui uma dimensão padrão de 8x8
